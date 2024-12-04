@@ -1,0 +1,297 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agencia de Autos ID - Encuentra tu Vehiculo Perfecto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a1a2e;
+            --secondary-color: #4a4e69;
+            --accent-color: #6a0572;
+            --input-bg: #f0f0f0; 
+            --city-bg: #d3e0ea;
+            --family-bg: #f7d9d9;
+            --work-bg: #e5e5e5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--primary-color);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 90%;
+            max-width: 1400px;
+            background: rgba(26, 26, 46, 0.7);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .car-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            gap: 15px;
+        }
+
+        .car-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .car-image:hover {
+            transform: scale(1.05);
+        }
+
+        .form-section {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: rgba(0,0,0,0.3);
+            width: 100%;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+        }
+
+        .search-form {
+            display: grid;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 8px;
+            color: #fff;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .form-group select, 
+        .form-group input[type="number"] {
+            padding: 12px;
+            border: 2px solid var(--secondary-color);
+            border-radius: 8px;
+            background: var(--input-bg); 
+            color: #000;
+            font-family: 'Times New Roman', serif;
+            font-size: 1.1rem;
+        }
+
+        .search-btn {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .search-btn:hover {
+            background: #8e2de2;
+            transform: scale(1.05);
+        }
+
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            color: #fff;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid var(--secondary-color);
+        }
+
+        th {
+            background-color: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .car-image {
+                width: 100%;
+            }
+
+            table, th, td {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="car-section">
+            <img src="https://images.pexels.com/photos/2127039/pexels-photo-2127039.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                 alt="Automóvil Deportivo" 
+                 class="car-image">
+            <img src="https://images.pexels.com/photos/23554189/pexels-photo-23554189/free-photo-of-calle-vehiculo-vintage-clasico.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                 alt="Automóvil Familiar" 
+                 class="car-image">
+            <img src="https://images.pexels.com/photos/27524777/pexels-photo-27524777/free-photo-of-mar-ciudad-trafico-agua.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                 alt="Automóvil Ciudad" 
+                 class="car-image">
+            <img src="https://images.pexels.com/photos/25526032/pexels-photo-25526032/free-photo-of-rojo-bosque-vehiculo-entrada-para-coches.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                 alt="Automóvil de Toyota" 
+                 class="car-image">
+        </div>
+        
+        <div class="form-section">
+            <div class="header">
+                <h1>Agencia de Autos ID</h1>
+                <p>Busca tu proximo automovil</p>
+            </div>
+
+            <form id="searchForm" class="search-form">
+                <div class="form-group">
+                    <label for="uso">Uso del Vehiculo</label>
+                    <select id="uso" name="uso">
+                        <option value="ciudad">Ciudad</option>
+                        <option value="familiar">Familiar</option>
+                        <option value="trabajo">Trabajo</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="precio">Precio (5 digitos)</label>
+                    <input type="number" id="precio" name="precio" placeholder="Ingrese precio" min="10000" max="99999" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="consumo">Consumo de Combustible</label>
+                    <select id="consumo" name="consumo">
+                        <option value="alto">Alto</option>
+                        <option value="medio">Medio</option>
+                        <option value="bajo">Bajo</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="search-btn">Buscar Automoviles</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <table id="resultsTable" style="display:none;">
+            <thead>
+                <tr>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Tipo</th>
+                    <th>Precio</th>
+                    <th>Año</th>
+                    <th>Uso</th>
+                    <th>Consumo</th>
+                    <th>Imagen</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <script>
+        document.getElementById("searchForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const uso = document.getElementById("uso").value;
+            const precio = document.getElementById("precio").value;
+            const consumo = document.getElementById("consumo").value;
+
+            if (!uso || !precio) {
+                alert("Por favor, completa todos los campos.");
+                return;
+            }
+
+            const url = `http://localhost:3000/api/autos/buscar?uso=${uso}&precio=${precio}&consumo=${consumo}`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    const tableBody = document.querySelector("#resultsTable tbody");
+                    tableBody.innerHTML = ''; // Limpiar tabla antes de agregar nuevos resultados
+                  
+                        data.forEach(auto => {
+                            const row = document.createElement("tr");
+                            row.innerHTML = `
+                                <td>${auto.marca}</td>
+                                <td>${auto.modelo}</td>
+                                <td>${auto.tipo}</td>
+                                <td>${auto.precio}</td>
+                                <td>${auto.anio}</td>
+                                <td>${auto.uso}</td>
+                                <td>${auto.consumo}</td>
+                                <td><img src="${auto.imagen}" alt="Imagen del automóvil" style="width: 80px; height: 50px; object-fit: cover;"></td>
+                            `;
+                            tableBody.appendChild(row);
+                        });
+                        
+                        tableBody.appendChild(row);
+                    });
+                    document.getElementById("resultsTable").style.display = "table";
+                })
+                .catch(error => {
+                    console.error("Error al hacer la solicitud:", error);
+                });
+        
+    </script>
+        <script src="app.js"></script>
+</body>
+</html>  
